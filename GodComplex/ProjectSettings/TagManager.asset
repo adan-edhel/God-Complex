@@ -11,6 +11,8 @@ TagManager:
   - 
   - Water
   - UI
+  - Ground
+  - VrPlayer
   - 
   - 
   - 
@@ -19,9 +21,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - TroopUnits
   - 
   - 
   - 
