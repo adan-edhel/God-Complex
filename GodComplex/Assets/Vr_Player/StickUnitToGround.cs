@@ -50,5 +50,6 @@ public class StickUnitToGround : MonoBehaviour
             GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
             placed = true;
         }
+        if (this.gameObject.name == "TroopUnit" && placed) GetComponent<Minion>().enabled = true;
     }
 }
