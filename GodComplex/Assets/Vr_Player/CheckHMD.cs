@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CheckHMD : MonoBehaviour
 {
+    public bool vrEnabled;
 
     private void Start()
     {
@@ -44,12 +45,13 @@ public class CheckHMD : MonoBehaviour
         {
             XRGeneralSettings.Instance.Manager.StopSubsystems();
             XRGeneralSettings.Instance.Manager.DeinitializeLoader();
-            Debug.Log("Geen VR");
-            SceneManager.LoadScene("Pc_Player");
+            vrEnabled = false;
+            //SceneManager.LoadScene("Pc_Player");
         }
         else
         {
-            SceneManager.LoadScene("Vr_Player");
+            vrEnabled = true;
+            //SceneManager.LoadScene("Vr_Player");
         }
     }
 }
