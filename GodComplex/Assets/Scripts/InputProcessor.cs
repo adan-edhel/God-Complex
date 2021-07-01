@@ -16,7 +16,9 @@ public class InputProcessor : MonoBehaviour
 
     private void Start()
     {
-        if (Camera.main) Destroy(Camera.main.gameObject);
+        //if (Camera.main) Destroy(Camera.main.gameObject);
+
+        Cursor.visible = false;
 
         character = Instantiate(playerCharacterPrefab);
         character.GetComponent<Character>().playerInput = this;
