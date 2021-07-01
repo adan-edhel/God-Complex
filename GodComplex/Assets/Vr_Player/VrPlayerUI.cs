@@ -26,7 +26,7 @@ public class VrPlayerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InputDevices.GetDeviceAtXRNode(_leftHand.controllerNode).TryGetFeatureValue(CommonUsages.gripButton, out bool gripping);
+        InputDevices.GetDeviceAtXRNode(_leftHand.controllerNode).TryGetFeatureValue(CommonUsages.triggerButton, out bool gripping);
         if (gripping) _uiCanvas.SetActive(true);
         else _uiCanvas.SetActive(false);
 

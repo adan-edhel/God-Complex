@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using Photon.Pun;
 
 public class Troop : XRSocketInteractor
 {
@@ -79,6 +80,7 @@ public class Troop : XRSocketInteractor
     {
         //Check geld van de speler voordat de troop gespawned wordt
         GetComponentInParent<VrPlayerUI>().RemoveGoldAmount(_troopCost);
+        //GameObject troopUnit = Instantiate(troopPrefab, transform.position - attachOffset, transform.rotation);
         GameObject troopUnit = Instantiate(troopPrefab, transform.position - attachOffset, transform.rotation);
         return troopUnit.GetComponent<TroopUnit>();
     }

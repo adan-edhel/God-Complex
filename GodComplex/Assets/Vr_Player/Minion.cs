@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public class Minion : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public int damage = 200;
+
+    public float health = 100f;
 
     private void Start()
     {
@@ -15,7 +18,15 @@ public class Minion : MonoBehaviour
 
     private void Update()
     {
-        agent.destination = FindTarget().transform.position;
+        if(FindTarget())
+        {
+            agent.destination = FindTarget().transform.position;
+        }
+        else
+        {
+            agent.destination = transform.position;
+        }
+
     }
 
     // This list holds all of the targets that are in range
@@ -84,4 +95,24 @@ public class Minion : MonoBehaviour
         score = 100 - (target.position - transform.position).sqrMagnitude;
         return score;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerAI>().TakeDamage(damage);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+    }
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
 }
